@@ -4,13 +4,23 @@ Created by: MetY-def
 """
 
 
-def alter_pruefen():
-    alter = int(input("Gib ein Alter ein "))
+from datetime import date
 
-    if alter >= 18:
+heute = date.today()
+achtzehn = heute.replace(year=heute.year - 18)
+
+
+def alter_pruefen():
+    jahr = int(input("Geburtsjahr eingeben (jjjj): "))
+    monat = int(input("Geburtsmonat eingeben (mm): "))
+    tag = int(input("Geburtstag eingeben (tt): "))
+
+    geburtstag = date(jahr, monat, tag)
+
+    if geburtstag <= achtzehn:
         print("Die Person ist Volljährig")
     else:
-        print("Die Person ist Minderjährig")
+        print("Die Person ist nicht Volljährig")
 
 
 def menue():
